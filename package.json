@@ -7,6 +7,10 @@
     "test": "test",
     "start": "node ./bin/www"
   },
+  "engines": {
+    "node": "16.13.0",
+    "npm": "*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xPuffball/remote-discord-messager.git"
