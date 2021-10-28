@@ -1,7 +1,8 @@
 {
   "name": "remote-display-messenger",
   "engines": {
-    "node": "16.13.0"
+    "node": "16.13.0",
+    "npm": "8.1.0"
   },
   "version": "0.0.0",
   "private": true,
@@ -20,5 +21,9 @@
   },
   "devDependencies": {
     "discord.js": "^13.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xPuffball/remote-discord-messager.git"
   }
 }
