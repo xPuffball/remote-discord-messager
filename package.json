@@ -20,5 +20,5 @@
   },
   "devDependencies": {
     "discord.js": "^13.2.0"
-  },
+  }
 }
