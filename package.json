@@ -1,5 +1,8 @@
 {
   "name": "remote-display-messenger",
+  "engines": {
+    "node": "16.13.0"
+  },
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -17,5 +20,5 @@
   },
   "devDependencies": {
     "discord.js": "^13.2.0"
-  }
+  },
 }
