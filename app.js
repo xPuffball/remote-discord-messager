@@ -4,9 +4,24 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+const dotenv = require('dotenv')
+const result = dotenv.config({path: 'process.env'})
 
 var app = express();
+
+// discord.js classes
+const { Client, Intents } = require('discord.js');
+const { channel } = require('diagnostics_channel');
+const token = process.env.DISCORD_TOKEN
+
+// creating a new client instance
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] })
+
+client.once('ready', () => {
+  console.log('ready!')
+})
+
+client.login(token);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,8 +33,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-
+app.get('/:info', function(req, res, next) {
+  const guild = client.guilds.cache.get("368212200369684482")
+  const channel = guild.channels.cache.get("697028995107258429")
+  const parsedReq = req.params.info
+  channel.send(req.params.info)
+  res.send('i think it worked')
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
