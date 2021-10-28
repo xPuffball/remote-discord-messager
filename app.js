@@ -35,6 +35,8 @@ app.get('/', function(req, res, next) {
   res.send('enter some information after the slash!')
 })
 
+app.get('/favicon.ico', (req, res) => res.status(204))
+
 app.get('/:info', function(req, res, next) {
   const guild = client.guilds.cache.get("368212200369684482")
   const channel = guild.channels.cache.get("697028995107258429")
@@ -42,6 +44,7 @@ app.get('/:info', function(req, res, next) {
   channel.send(req.params.info)
   res.send('i think it worked! sending the data to the discord server...')
 });
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
