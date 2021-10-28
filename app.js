@@ -10,7 +10,7 @@ const result = dotenv.config({path: 'process.env'})
 var app = express();
 
 // discord.js classes
-import { Client, Intents } from 'discord.js';
+const { Client, Intents } = require('discord.js');
 const { channel } = require('diagnostics_channel');
 const token = process.env.DISCORD_TOKEN
 
