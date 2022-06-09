@@ -29,7 +29,7 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 var jsonParser = bodyParser.json()
@@ -40,9 +40,9 @@ app.get('/', function(req, res, next) {
 
 app.get('/favicon.ico', (req, res) => res.status(204))
 
-app.post('/:channel', jsonParser, function(req, res) {
+app.post('/:channel', function(req, res) {
   const channel = req.params.channel
-  const msg = JSON.stringify(req.body);
+  const msg = req.body.info
   res.send(msg + `and your channel is: ${channel}`)
 }) 
 app.get('/:info', function(req, res, next) {
