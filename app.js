@@ -32,8 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+var jsonParser = bodyParser.json()
 
 app.get('/', function(req, res, next) {
   res.send('enter some information after the slash!')
@@ -41,7 +40,7 @@ app.get('/', function(req, res, next) {
 
 app.get('/favicon.ico', (req, res) => res.status(204))
 
-app.post('/:channel', function(req, res) {
+app.post('/:channel', jsonParser, function(req, res) {
   const channel = req.params.channel
   res.send(req.body.info + `and your channel is: ${channel}`)
 }) 
