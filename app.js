@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+const bodyParser = require("body-parser");
 
 const dotenv = require('dotenv')
 const result = dotenv.config({path: 'process.env'})
@@ -31,6 +32,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.get('/', function(req, res, next) {
   res.send('enter some information after the slash!')
 })
@@ -39,7 +43,7 @@ app.get('/favicon.ico', (req, res) => res.status(204))
 
 app.post('/:channel', function(req, res) {
   const channel = req.params.channel
-  res.send(req.body.bruh + `and your channel is: ${channel}`)
+  res.send(req.body.info + `and your channel is: ${channel}`)
 }) 
 app.get('/:info', function(req, res, next) {
   const guild = client.guilds.cache.get("901275793978712115")
