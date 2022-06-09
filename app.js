@@ -43,7 +43,10 @@ app.get('/favicon.ico', (req, res) => res.status(204))
 app.post('/:channel', function(req, res) {
   const channel = req.params.channel
   const msg = req.body.info
-  res.send(msg + `and your channel is: ${channel}`)
+  
+  const guild = client.guilds.cache.get("901275793978712115")
+  bot.channels.find("name", channel).send(msg)
+  res.send('i think it worked! sending the data to the discord server...')
 }) 
 app.get('/:info', function(req, res, next) {
   const guild = client.guilds.cache.get("901275793978712115")
