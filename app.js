@@ -47,7 +47,7 @@ app.post('/:channel', function(req, res) {
   const guild = client.guilds.cache.get("901275793978712115")
   const channel = guild.channels.cache.find(channel => channel.name===channelName)
   channel.send(msg)
-  res.send(`sending ${msg} to ${channel}...`)
+  res.send(`sending ${msg} to ${channelName}/${channel}...`)
 }) 
 // app.get('/:channel', function(req, res, next) {
 //   const guild = client.guilds.cache.get("901275793978712115")
