@@ -39,7 +39,7 @@ app.get('/favicon.ico', (req, res) => res.status(204))
 
 app.post('/:channel', function(req, res) {
   const channel = req.params.channel
-  res.send(req.body + `and your channel is: ${channel}`)
+  res.send(req.body.bruh + `and your channel is: ${channel}`)
 }) 
 app.get('/:info', function(req, res, next) {
   const guild = client.guilds.cache.get("901275793978712115")
