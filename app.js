@@ -37,13 +37,17 @@ app.get('/', function(req, res, next) {
 
 app.get('/favicon.ico', (req, res) => res.status(204))
 
-app.get('/:info', function(req, res, next) {
-  const guild = client.guilds.cache.get("901275793978712115")
-  const channel = guild.channels.cache.get("901275793978712118")
-  const parsedReq = req.params.info
-  channel.send(req.params.info)
-  res.send('i think it worked! sending the data to the discord server...')
-});
+app.post('/:channel', function(req, res) {
+  const channel = req.params.channel
+  res.send(req.body + `and your channel is: ${channel}`)
+}) 
+// app.get('/:info', function(req, res, next) {
+//   const guild = client.guilds.cache.get("901275793978712115")
+//   const channel = guild.channels.cache.get("901275793978712118")
+//   const parsedReq = req.params.info
+//   channel.send(req.params.info)
+//   res.send('i think it worked! sending the data to the discord server...')
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
