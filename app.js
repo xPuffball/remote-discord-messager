@@ -35,8 +35,6 @@ app.get('/', function(req, res, next) {
   res.send('enter some information after the slash!')
 })
 
-app.get('/favicon.ico', (req, res) => res.status(204))
-
 app.post('/:channel', function(req, res) {
   const channel = req.params.channel
   res.send(req.body + `and your channel is: ${channel}`)
