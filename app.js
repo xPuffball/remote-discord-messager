@@ -42,8 +42,8 @@ app.get('/favicon.ico', (req, res) => res.status(204))
 
 app.post('/:channel', jsonParser, function(req, res) {
   const channel = req.params.channel
-  const msg = JSON.parse(JSON.stringify(req.body));
-  res.send(msg.info + `and your channel is: ${channel}`)
+  const msg = JSON.stringify(req.body);
+  res.send(msg + `and your channel is: ${channel}`)
 }) 
 app.get('/:info', function(req, res, next) {
   const guild = client.guilds.cache.get("901275793978712115")
