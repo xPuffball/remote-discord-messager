@@ -11,7 +11,7 @@ var app = express();
 // discord.js classes
 const { Client, Intents } = require('discord.js');
 const { channel } = require('diagnostics_channel');
-const token = process.env.DISCORD_TOKEN
+const token = process.env.TOKEN
 
 // creating a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] })
